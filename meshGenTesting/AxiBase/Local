@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+blockMesh # create the mesh
+
+checkMesh  # check the mesh
+
+icoFoam > log.icoFoam & # run the solver 
+
+#------------------------------------------------------------------------------
